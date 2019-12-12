@@ -1,0 +1,6 @@
+/.docz
+/.git
+/.vscode
+/dist
+/mdx
+node_modules

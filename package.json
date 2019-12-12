@@ -1,0 +1,71 @@
+{
+  "name": "react-listen-resize",
+  "version": "0.1.0",
+  "description": "Listener resize",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "typings": "typings/index.d.ts",
+  "author": "sanshuiwang <768188667@qq.com> (https://github.com/sanshuiwang)",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "doc:dev": "father doc dev",
+    "doc:build-deploy": "father doc build && father doc deploy",
+    "build": "father build"
+  },
+  "lint-staged": {
+    "**/*.{jsx,js}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanshuiwang/react-listen-resize.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/sanshuiwang/react-listen-resize/issues"
+  },
+  "homepage": "https://github.com/sanshuiwang/react-listen-resize#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "docz-plugin-splash": "^1.0.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "father": "^2.24.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "rollup-plugin-commonjs": "^10.1.0"
+  },
+  "peerDependencies": {
+    "lodash": ">=4.0.0",
+    "react": ">=16.8.0",
+    "prop-types": ">=15.7.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "react": "^16.10.2",
+    "prop-types": "^15.7.2"
+  }
+}
