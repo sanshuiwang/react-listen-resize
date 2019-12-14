@@ -1,8 +1,9 @@
 import React from 'react'
+import hoistNonReactStatic from 'hoist-non-react-statics'
 import throttle from 'lodash/throttle'
 
 function withListenResize(WrappedComponent) {
-  return class extends React.Component {
+  class WithListenResize extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
@@ -36,6 +37,14 @@ function withListenResize(WrappedComponent) {
       return <WrappedComponent innerHeight={innerHeight} innerWidth={innerWidth} {...this.props} />
     }
   }
+
+  WithListenResize.displayName = `withListenResize(${getDisplayName(WrappedComponent)})`
+
+  return hoistNonReactStatic(WithListenResize, WrappedComponent)
+}
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
 }
 
 export default withListenResize
