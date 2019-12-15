@@ -15,11 +15,11 @@ function createListenResize(callback, isInitListenCallback = false) {
   isInitListenCallback && _screenResizeHandler()
 
   window.addEventListener('resize', handler)
-  const cancelListen = () => {
+  const cancelListenResize = () => {
     window.removeEventListener('resize', handler)
   }
 
-  return [{ innerHeight, innerWidth }, cancelListen]
+  return [{ innerHeight, innerWidth }, cancelListenResize]
 }
 
 export default createListenResize

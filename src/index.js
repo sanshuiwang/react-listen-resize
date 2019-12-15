@@ -1,5 +1,5 @@
 import useListenResize from './hooks'
 import createListenResize from './createListenResize'
-import withListenResize from './withListenResize'
+import createWithListenResize from './createWithListenResize'
 
-export { useListenResize, createListenResize, withListenResize }
+export { useListenResize, createListenResize, createWithListenResize }
