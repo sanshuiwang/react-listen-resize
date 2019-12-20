@@ -1,6 +1,6 @@
 import throttle from 'lodash/throttle'
 
-function createListenResize(callback, isInitListenCallback = false) {
+function createListenResize(callback, isInitExcutionCallback = false) {
   let innerHeight = window.innerHeight
   let innerWidth = window.innerWidth
 
@@ -12,7 +12,7 @@ function createListenResize(callback, isInitListenCallback = false) {
   }
   const handler = throttle(_screenResizeHandler, 250)
 
-  isInitListenCallback && _screenResizeHandler()
+  isInitExcutionCallback && _screenResizeHandler()
 
   window.addEventListener('resize', handler)
   const cancelListenResize = () => {

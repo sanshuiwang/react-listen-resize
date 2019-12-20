@@ -1,7 +1,7 @@
 {
   "name": "react-listen-resize",
   "version": "0.1.0",
-  "description": "Listener resize",
+  "description": "Listening resize can use hooks、HOC、normal function.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "unpkg": "dist/index.umd.js",
@@ -32,7 +32,13 @@
     "type": "git",
     "url": "git+https://github.com/sanshuiwang/react-listen-resize.git"
   },
-  "keywords": [],
+  "keywords": [
+    "listen",
+    "resize",
+    "self-hook",
+    "HOC",
+    "normal function"
+  ],
   "bugs": {
     "url": "https://github.com/sanshuiwang/react-listen-resize/issues"
   },

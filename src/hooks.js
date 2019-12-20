@@ -17,13 +17,9 @@ const reducer = (state, action) => {
   }
 }
 
-function useListenResize(callback, isInitFunc = false) {
-  const [isInitListenCallback, setIsInitListenCallback] = useState(false)
+function useListenResize(callback, isInitExcutionCallback = false) {
+  const [isInit, setIsInit] = useState(false)
   const [state, dispatch] = useReducer(reducer, initialState)
-
-  useEffect(() => {
-    setIsInitListenCallback(isInitFunc)
-  }, [isInitFunc])
 
   const _screenResizeHandler = useCallback(
     event => {
@@ -46,21 +42,28 @@ function useListenResize(callback, isInitFunc = false) {
   )
 
   useEffect(() => {
-    if (isInitListenCallback) {
-      _screenResizeHandler()
-      setIsInitListenCallback(false)
-    }
-  }, [_screenResizeHandler, isInitListenCallback])
+    setIsInit(isInitExcutionCallback)
+  }, [isInitExcutionCallback])
 
   useEffect(() => {
-    const handler = throttle(_screenResizeHandler, 250)
-    window.addEventListener('resize', handler)
-    return () => {
-      window.removeEventListener('resize', handler)
+    if (isInit) {
+      _screenResizeHandler()
+      setIsInit(false)
     }
-  }, [_screenResizeHandler])
+  }, [_screenResizeHandler, isInit])
 
-  return [state]
+  const handler = useCallback(throttle(_screenResizeHandler, 250), [])
+
+  const cancelListenResize = useCallback(() => {
+    window.removeEventListener('resize', handler)
+  }, [handler])
+
+  useEffect(() => {
+    window.addEventListener('resize', handler)
+    return cancelListenResize
+  }, [cancelListenResize, handler])
+
+  return [state, cancelListenResize]
 }
 
 export default useListenResize
