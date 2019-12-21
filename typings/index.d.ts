@@ -1,10 +1,3 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-
-interface IPropsType {}
-
-declare class ReactScrollDown extends React.Component<IPropsType> {
-  render(): React.FunctionComponentElement<any>
-}
-
-export default ReactScrollDown
+export { default as createListenResize } from './createListenResize'
+export { default as createWithListenResize } from './createWithListenResize'
+export { default as useListenResize } from './hooks'
