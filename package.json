@@ -1,6 +1,6 @@
 {
   "name": "react-listen-resize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Listening resize can use hooks、HOC、normal function.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
