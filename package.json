@@ -14,16 +14,19 @@
     "doc:build-deploy": "father doc build && father doc deploy",
     "build": "father build"
   },
-  "lint-staged": {
-    "**/*.{jsx,js}": [
-      "prettier-eslint --write",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": "eslint --max-warnings=1 --ignore-pattern !.fatherrc.js"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-angular"
+    ]
   },
   "files": [
     "dist",
@@ -45,18 +48,23 @@
   },
   "homepage": "https://github.com/sanshuiwang/react-listen-resize#readme",
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x",
     "docz-plugin-splash": "^1.0.1",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint": "6.x",
     "eslint-config-prettier": "^6.5.0",
+    "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-flowtype": "4.5.2",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.3.0",
     "father": "^2.24.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
@@ -67,12 +75,12 @@
   },
   "peerDependencies": {
     "lodash": ">=4.0.0",
-    "react": ">=16.8.0",
-    "prop-types": ">=15.7.0"
+    "prop-types": ">=15.7.0",
+    "react": ">=16.8.0"
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "react": "^16.10.2",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2"
   }
 }

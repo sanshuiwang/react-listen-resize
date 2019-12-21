@@ -8,19 +8,18 @@
       "impliedStrict": true // enable global strict mode
     }
   },
-  "extends": [
-    "airbnb", // Uses airbnb, it including the react rule(eslint-plugin-react/eslint-plugin-jsx-a11y)
-    // "airbnb/hooks",
-    "plugin:promise/recommended",
-    "prettier", // Use prettier, it can pretty file before executing eslint --fix
-    "prettier/react" // Use prettier/react to pretty react syntax
-  ],
-  "plugins": ["react-hooks", "promise", "babel", "prettier"], // ['prettier', 'react-hooks']
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "plugins": ["prettier", "react", "react-hooks"],
   "env": {
     "node": true,
     "browser": true // enable all browser global variables
   },
   "rules": {
+    "strict": "error",
+    "no-sequences": "error",
+    "no-mixed-operators": "error",
+    "react/react-in-jsx-scope": "error",
+    "no-useless-escape": "error",
     "max-len": [
       "error",
       {
@@ -29,10 +28,7 @@
     ],
     "react/prop-types": "error",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "allowTaggedTemplates": true,
-    "allowShortCircuit": true,
-    "allowTernary": true
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {}
 }
