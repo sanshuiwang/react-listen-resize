@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import hoistNonReactStatic from 'hoist-non-react-statics'
-import throttle from 'lodash/throttle'
+import { throttle } from './helpers/util'
 
 function withListenResize({ forwardRef = false }) {
   return function withListenResizeHOC(WrappedComponent) {

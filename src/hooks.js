@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useReducer, useState } from 'react'
-import throttle from 'lodash/throttle'
+import { throttle } from './helpers/util'
 
 const initialState = {
   innerHeight: window.innerHeight,
