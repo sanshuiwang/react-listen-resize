@@ -11,11 +11,7 @@ export const throttle = function(fn, delay = 250, atleast = 250) {
     if (!previous) previous = now
     if (now - previous > atleast) {
       clearTimeout(timer)
-      console.log('操作1')
-
       fn.apply(context, args)
-
-      console.log('操作3')
       // 重置上一次开始时间为本次结束时间
       previous = now
     } else {
